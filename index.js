@@ -22,18 +22,14 @@ const dataBelanjaan = [
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
 const listBelanjaan = (belanja) => {
-  return belanja.map(
-    (dataBelanjaan) => `- ${dataBelanjaan.nama} X ${dataBelanjaan.kuantitas}`
-  );
+  return belanja.map((barang) => `- ${barang.nama} X ${barang.kuantitas}`);
 };
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
 const totalBelanjaan = (belanjaan) => {
-  let total = 0;
-  for (const belanja in belanjaan) {
-    total = total + belanjaan[belanja].harga * belanjaan[belanja].kuantitas;
-  }
-  return total;
+  return belanjaan
+    .map((barang) => barang.harga * barang.kuantitas)
+    .reduce((acc, curr) => acc + curr);
 };
 
 // ! JANGAN DIMODIFIKASI
