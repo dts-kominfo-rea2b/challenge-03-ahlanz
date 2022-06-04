@@ -27,9 +27,9 @@ const listBelanjaan = (belanja) => {
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
 const totalBelanjaan = (belanjaan) => {
-  return belanjaan
-    .map((barang) => barang.harga * barang.kuantitas)
-    .reduce((acc, curr) => acc + curr);
+  return belanjaan.reduce((total, barang) => {
+    return total + barang.harga * barang.kuantitas;
+  }, 0);
 };
 
 // ! JANGAN DIMODIFIKASI
